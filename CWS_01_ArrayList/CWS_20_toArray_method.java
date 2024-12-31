@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CWS_toArray_method {
+public class CWS_20_toArray_method {
     public static void main(String[] args) {
         List<Integer> list1=new ArrayList<>(List.of(1,2,3,4,5,6,7));
         List<String> list2=new ArrayList<>(List.of("a1","a2","a3"));
