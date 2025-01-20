@@ -8,9 +8,9 @@ import java.util.Comparator;
 import java.util.List;
 
 class Employee{
-    private int id;
-    private String name;
-    private int age;
+    private final int id;
+    private final String name;
+    private final int age;
 
     public Employee(int id,String name,int age){
         this.id=id;
@@ -38,6 +38,9 @@ public class CWS_25_Comparator_comparing {
         list.add(new Employee(102,"patil",22));
         list.add(new Employee(103,"Adarsh",21));
         list.add(new Employee(104,"Shubham",24));
+        list.add(new Employee(104,"Sohan",22));
+        list.add(new Employee(104,"Santosh",24));
+        list.add(new Employee(104,"Sagar",24));
 
         System.out.println("initial list:");
         list.forEach((e)->{
@@ -49,7 +52,7 @@ public class CWS_25_Comparator_comparing {
 
         list.sort(comparator1);
 
-        System.out.println("list after sorting ascending order of age:");
+        System.out.println("\n\n list after sorting ascending order of age:");
         list.forEach((e)->{
             System.out.println("id: "+e.getId()+" name: "+e.getName()+" age: "+e.getAge());
         });
@@ -58,7 +61,16 @@ public class CWS_25_Comparator_comparing {
         Comparator<Employee> comparator2 = Comparator.comparing(Employee::getAge).reversed();
 
         list.sort(comparator2);
-        System.out.println("list after sorting *descending order of age:");
+        System.out.println("\n\n list after sorting *descending order of age:");
+        list.forEach((e)->{
+            System.out.println("id: "+e.getId()+" name: "+e.getName()+" age: "+e.getAge());
+        });
+
+        /// comparator with two comparing things
+        Comparator<Employee> comparator3=Comparator.comparing(Employee::getAge).thenComparing(Employee::getName).reversed();
+
+        list.sort(comparator3);
+        System.out.println("\n\n list after sorting by age then by name but reversed");
         list.forEach((e)->{
             System.out.println("id: "+e.getId()+" name: "+e.getName()+" age: "+e.getAge());
         });
