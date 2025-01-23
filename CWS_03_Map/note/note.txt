@@ -1,0 +1,117 @@
+Here are some common Java Map interview questions with their answers:
+
+---
+
+ 1. What is a Map in Java?
+Answer:  
+A `Map` in Java is a collection interface that stores key-value pairs, where each key is unique. It allows fast retrieval, update, and deletion of data using keys. Common implementations include `HashMap`, `LinkedHashMap`, and `TreeMap`.
+
+---
+
+ 2. What are the main implementations of the Map interface in Java?  
+Answer:  
+- HashMap: Unordered and unsorted; allows one null key and multiple null values.  
+- LinkedHashMap: Maintains insertion order.  
+- TreeMap: Sorted in natural order or by a custom comparator.  
+- Hashtable: Synchronized version of HashMap, doesn't allow null keys or values.  
+- ConcurrentHashMap: Thread-safe version of HashMap.
+
+---
+
+ 3. What is the difference between HashMap and Hashtable?  
+Answer:  
+| Feature         | HashMap                   | Hashtable                |
+|-----------------|-------------------------------|------------------------------|
+| Thread Safety    | Not thread-safe              | Thread-safe                 |
+| Null Keys/Values | Allows one null key and multiple null values | Does not allow null keys or values |
+| Performance      | Faster (no synchronization overhead) | Slower due to synchronization |
+| Usage            | Preferred in single-threaded environments | Used in multi-threaded environments |
+
+---
+
+ 4. How does HashMap work internally?  
+Answer:  
+- HashMap uses an array of buckets to store data.  
+- The hash code of the key determines the bucket where the key-value pair will be stored.  
+- If multiple keys result in the same hash code, a linked list (or tree in case of collisions) is used in the bucket to store entries.  
+- From Java 8 onwards, if the number of entries in a bucket exceeds a threshold (default 8), the linked list is converted to a balanced tree for better performance.
+
+---
+
+ 5. What is the load factor in HashMap?  
+Answer:  
+- The load factor determines when the HashMap will resize (increase capacity).  
+- Default load factor is 0.75, meaning the HashMap will resize when 75% of its capacity is filled.  
+- Resizing involves doubling the capacity and rehashing the entries.
+
+---
+
+ 6. What is the difference between TreeMap and HashMap?  
+Answer:  
+| Feature         | HashMap                | TreeMap                  |
+|----------------------|----------------------------|------------------------------|
+| Order           | No order maintained       | Sorted (natural or custom order) |
+| Null Keys       | Allows one null key       | Does not allow null keys     |
+| Performance     | O(1) for get/put operations | O(log n) for get/put operations |
+| Usage           | Use when order doesn’t matter | Use when sorted order is required |
+
+---
+
+ 7. How to iterate over a Map in Java?
+Answer:  
+You can iterate over a Map using:
+- Entry Set:
+  ```java
+  for (Map.Entry<K, V> entry : map.entrySet()) {
+      System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+  }
+  ```
+- Key Set:
+  ```java
+  for (K key : map.keySet()) {
+      System.out.println("Key: " + key + ", Value: " + map.get(key));
+  }
+  ```
+- Java 8 forEach:
+  ```java
+  map.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+  ```
+
+---
+
+ 8. What happens if two keys have the same hash code in HashMap?
+Answer:  
+When two keys have the same hash code (hash collision):
+- They are placed in the same bucket.
+- A linked list is used to store these entries.
+- The `equals` method is used to differentiate between the keys.  
+
+From Java 8 onwards, the linked list is converted into a balanced tree if the number of elements in the bucket exceeds the threshold.
+
+---
+
+ 9. How does ConcurrentHashMap differ from HashMap?
+Answer:  
+- ConcurrentHashMap is thread-safe and allows concurrent reads and writes without locking the entire map.  
+- Instead of locking the entire Map, it uses a concept of segments for better concurrency.  
+- Null keys and values are not allowed in `ConcurrentHashMap`.
+
+---
+
+ 10. Can a HashMap key be mutable?
+Answer:  
+No, using a mutable object as a key in a `HashMap` is discouraged because:
+- If the key's state changes after being added to the map, its hash code may change, making it impossible to retrieve the entry correctly.
+
+---
+
+ 11. What are WeakHashMap and IdentityHashMap?
+Answer:  
+- WeakHashMap:  
+  Uses weak references for keys. If a key is no longer in use, it will be garbage collected.  
+- IdentityHashMap:  
+  Compares keys using `==` instead of `equals`.
+
+---
+
+Let me know if you'd like detailed code examples or further clarification!
