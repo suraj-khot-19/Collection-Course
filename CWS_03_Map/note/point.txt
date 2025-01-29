@@ -29,5 +29,3 @@ Although `Map` is not part of the `Collection` interface, it is still a part of 
  Related Interfaces and Classes
 - `HashMap`, `TreeMap`, `LinkedHashMap`, `WeakHashMap`, and `ConcurrentHashMap` are popular implementations of `Map`.
 - The `Map` interface has methods such as `put()`, `get()`, `remove()`, `keySet()`, `values()`, and `entrySet()` to work with key-value pairs.
-
-If you have further questions or need examples, feel free to ask! 😊

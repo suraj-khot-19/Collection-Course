@@ -111,7 +111,3 @@ Answer:
   Uses weak references for keys. If a key is no longer in use, it will be garbage collected.  
 - IdentityHashMap:  
   Compares keys using `==` instead of `equals`.
-
----
-
-Let me know if you'd like detailed code examples or further clarification!
