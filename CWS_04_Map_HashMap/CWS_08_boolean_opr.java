@@ -3,7 +3,7 @@ package CWS_04_Map_HashMap;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CWS_08_ {
+public class CWS_08_boolean_opr {
     public static void main(String[] args) {
         Map<String, Integer> maps = Map.of("suraj", 101, "rowdy", 102);
 
